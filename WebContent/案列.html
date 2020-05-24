@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <script src="js/jquery-2.1.0.min.js"></script>
+ <script>
+ $(function(){
+	 $("#po").blur(function(){
+		// alert(666);
+		 var vl=$(this).val();
+		 //alert(vl);
+		 $.get("verify",{"username":vl},function(data){
+			 if(data.ise){
+				 $("#sp").css("color","red");
+				 $("#sp").html(data.msg);
+			 }
+			 else{
+				 $("#sp").css("color","green");
+				 $("#sp").html(data.msg);
+			 }
+			 
+			 
+			 
+		 },"json");
+		 
+		 
+	 });
+	 
+	 
+ });
+ </script>
+</head>
+<body>
+<form action="">
+用户名<input type="text" id="po" placeholder="请输入用户名"/><span id="sp"></span>
+<br/>
+密码<input type="password"/>
+
+</form>
+
+</body>
+</html>

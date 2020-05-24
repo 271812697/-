@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+  <script src="js/jquery-2.1.0.min.js"></script>
+  <script>
+     $(function(){
+    	 
+    	 $("#btn1").click(function(){
+    		 $.ajax({
+    			 url:"ajaxservlet",
+    			 type:"POST",
+    			 data:{"username":"jack","age":23},//请求参数封装在键值对中
+    			 success:function(data){
+    				 alert(data);
+    			 },
+    			 error:function(){alert("出错了");},
+    			 dataType:"text"
+    			 
+    		 });
+    		 
+    		 
+    	 });
+    	 
+    	 
+     });
+  
+  </script>
+</head>
+<body>
+<input type="button" id="btn1" value="发送异步请求"/>
+
+</body>
+</html>
